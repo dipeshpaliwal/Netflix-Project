@@ -26,13 +26,6 @@ This project involves analyzing Netflix's content dataset to extract valuable in
 
 ---
 
-## 🗂️ Dataset
-
-- **Source:** [Netflix Movies and TV Shows Dataset on Kaggle](https://www.kaggle.com/shivamb/netflix-shows)
-- The dataset includes metadata such as `title`, `director`, `casts`, `country`, `release_year`, and `listed_in`.
-
----
-
 ## 🧱 Database Schema
 
 ```sql
@@ -53,3 +46,20 @@ CREATE TABLE netflix
     listed_in    VARCHAR(250),
     description  VARCHAR(550)
 );
+
+---
+
+## 💡 Business Problems & SQL Solutions
+
+---
+
+### 1️⃣ Count the Number of Movies vs TV Shows
+
+**Objective:** Determine the distribution of content types (Movies vs TV Shows) on Netflix.
+
+```sql
+SELECT 
+    type,
+    COUNT(*) AS total_count
+FROM netflix
+GROUP BY type;
